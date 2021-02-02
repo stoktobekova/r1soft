@@ -1,0 +1,33 @@
+- name: Install r1soft server
+  hosts: server
+  become: yes
+  become_method: sudo 
+
+
+     
+  tasks: 
+  - name: Create a Repository
+    copy:
+      src: r1soft.repo
+      dest: /etc/yum.repos.d
+    ignore_errors: true  
+   
+  - name: Install server
+    package:
+      name: r1soft-cdp-enterprise-server 
+      state: present
+  
+
+  - name: Create user and password  
+    shell: "r1soft-setup  --user root  --pass Janet  --http-port 8080"
+
+  - name: Start server  
+    when: ansible_distribution_major_version == "7"   
+    service:
+      name: cdp-server  
+      state: restarted
+      enabled: yes
+
+ 
+   
+  
