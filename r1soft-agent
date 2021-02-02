@@ -1,0 +1,36 @@
+- name: Install r1soft agent
+  hosts: agent
+  become: yes
+  become_method: sudo 
+
+     
+  tasks: 
+  - name: Create a Repository
+    copy:
+      src: r1soft.repo
+      dest: /etc/yum.repos.d
+   
+  - name: Install r1soft agent
+    yum:
+      name: serverbackup-enterprise-agent 
+      state: present
+  
+  - name: Start agent 
+    systemd:
+      name: sbm-agent
+      state: restarted 
+    ignore_errors: true
+  
+
+  - name: get key
+    shell: "r1soft-setup --get-key http://178.128.4.236:8080" 
+  
+
+  - name: Open port for 1167 on centos 7 
+    when: ansible_distribution_major_version == "7"
+    firewalld:
+      port: 1167/tcp
+      permanent: true
+      state: enabled
+    ignore_errors: true
+
