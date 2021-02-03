@@ -25,6 +25,12 @@
   - name: get key
     shell: "r1soft-setup --get-key http://178.128.4.236:8080" 
   
+  - name: Install Python
+    package: 
+      name: 
+      - python3
+      - python3-pip
+      state: present
 
   - name: Open port for 1167 on centos 7 
     when: ansible_distribution_major_version == "7"
@@ -33,4 +39,5 @@
       permanent: true
       state: enabled
     ignore_errors: true
+
 
