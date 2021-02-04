@@ -19,7 +19,7 @@
   
 
   - name: Create user and password  
-    shell: "r1soft-setup  --user root  --pass Janet  --http-port 8080"
+    shell: "r1soft-setup  --user root  --pass Passwd  --http-port 8080"
 
   - name: Start server  
     when: ansible_distribution_major_version == "7"   
