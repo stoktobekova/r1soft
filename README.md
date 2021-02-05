@@ -12,13 +12,6 @@ Create r1soft.repo file for r1soft server and agent
 Step 4 
 Add hosts to the inventory file: vi /etc/ansible/hosts
 
-cat /etc/ansible/hosts
-[r1soft-server]
-IP of r1soft server
-
-[r1soft-agent]
-IP of r1soft-agent
-
 Step 5 
 clone the ansible-playbook from GitHub and get into r1soft-ansible file
 
