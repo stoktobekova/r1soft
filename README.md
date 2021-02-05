@@ -26,14 +26,14 @@ git clone https://github.com/stoktobekova/r1soft.git
 cd r1soft-ansible
 
 Step 6
-Ansible-playbook r1sof-server.yml
+Run ansible-playbook r1sof-server.yml
 and ansible-playbook  r1sof-agent.yml
 
 Step 7
-Copy IP address of server and put on browser with :8080 port 
+Copy the IP address of server and put on browser with :8080 port 
 
 Step 8
-Add agent machine and check connection
+Add the agent machine and check connection
 
 Step 8
 Add volumes for backups and run backup depending how often backups should be running.
