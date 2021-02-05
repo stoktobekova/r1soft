@@ -28,5 +28,5 @@ Copy the IP address of server and put on browser with :8080 port
 Step 8
 Add the agent machine and check connection
 
-Step 8
+Step 9
 Add volumes for backups and run backup depending how often backups should be running.
